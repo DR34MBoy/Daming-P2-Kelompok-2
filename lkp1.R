@@ -13,15 +13,8 @@ write.csv(df,"#pathfile#/lkp1pcd.csv",row.names = FALSE)
 
 # membaca dataframe csv
 data = read.csv("#pathfile#/lkp1pcd.csv",header= TRUE,sep = ",")
-
-# mengambil / mengekstrak nilai dari kolom tertentu pada dataframe
-# Pakai metode dibawah kalo perlu
-tanggal <- data.frame(data$tanggal)
-kasus <- data.frame(data$kasus)
-sembuh <- data.frame(data$sembuh)
-meninggal <- data.frame(data$meninggal)
-
-         
+       
+  
 # Line Chart          
 g_range <- range(0,data$kasus,data$sembuh,data$meninggal)
 plot(data$kasus,type = "o",col="blue",ylim=g_range,axes= FALSE,ann = FALSE)
@@ -35,3 +28,10 @@ title(xlab="Tanggal",col.lab=rgb(0,0.5,0))
 title(ylab="Jumlah",col.lab=rgb(0,0.5,0))
 
 legend(9,g_range[2]-1,c("Kasus","Sembuh","Meninggal"),cex=0.8,col=c("blue","red","orange"),pch=21:22,lty=1:1)
+
+
+# Histogram
+angka <- data.frame(data$kasus,data$sembuh,data$meninggal)
+angka_t <- t(angka)
+
+barplot(as.matrix(angka_t),main = "COVID-19 Di DKI Jakarta Pada 10 - 21 Juli 2021",names.arg = data$tanggal,xlab="Tanggal",ylab ="Jumlah",beside = TRUE,col = rainbow(3))
