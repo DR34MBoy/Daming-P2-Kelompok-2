@@ -16,6 +16,7 @@ write.csv(df,"D:/Fakhri/Kuliah/Jadwal dan Materi Kuliah/Tahun Ketiga/Semester 6/
 data = read.csv("D:/Fakhri/Kuliah/Jadwal dan Materi Kuliah/Tahun Ketiga/Semester 6/PCD/P1/Praktikum/lkp1pcd.csv", header= TRUE, sep = ",")
 
 # mengambil / mengekstrak nilai dari kolom tertentu pada dataframe
+# Pakai metode dibawah kalo perlu
 tanggal <- data.frame(data$tanggal)
 kasus <- data.frame(data$kasus)
 sembuh <- data.frame(data$sembuh)
