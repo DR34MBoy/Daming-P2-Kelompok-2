@@ -6,13 +6,13 @@ meninggal <- c (74, 33, 117, 55, 47, 120, 105, 54, 125, 204, 197, 80)
 df <- data.frame(tanggal,kasus,sembuh,meninggal)
 
 # dataframe disimpan menjadi file variabel global
-save(df, file="D:/Fakhri/Kuliah/Jadwal dan Materi Kuliah/Tahun Ketiga/Semester 6/PCD/P1/Praktikum/latihan1.Rdata")
+save(df, file="#pathfile#/latihan1.Rdata")
 
 # membuat file csv dari dataframe
-write.csv(df,"D:/Fakhri/Kuliah/Jadwal dan Materi Kuliah/Tahun Ketiga/Semester 6/PCD/P1/Praktikum/lkp1pcd.csv", row.names = FALSE)
+write.csv(df,"#pathfile#/lkp1pcd.csv",row.names = FALSE)
 
 # membaca dataframe csv
-data = read.csv("D:/Fakhri/Kuliah/Jadwal dan Materi Kuliah/Tahun Ketiga/Semester 6/PCD/P1/Praktikum/lkp1pcd.csv", header= TRUE, sep = ",")
+data = read.csv("#pathfile#/lkp1pcd.csv",header= TRUE,sep = ",")
 
 # mengambil / mengekstrak nilai dari kolom tertentu pada dataframe
 # Pakai metode dibawah kalo perlu
