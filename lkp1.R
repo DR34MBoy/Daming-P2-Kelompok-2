@@ -35,3 +35,4 @@ angka <- data.frame(data$kasus,data$sembuh,data$meninggal)
 angka_t <- t(angka)
 
 barplot(as.matrix(angka_t),main = "COVID-19 Di DKI Jakarta Pada 10 - 21 Juli 2021",names.arg = data$tanggal,xlab="Tanggal",ylab ="Jumlah",beside = TRUE,col = rainbow(3))
+legend("topright", c("Kasus","Sembuh","Meninnggal"),cex = 0.6, bty ="n",fill=rainbow(3))
