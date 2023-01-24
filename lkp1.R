@@ -36,3 +36,10 @@ angka_t <- t(angka)
 
 barplot(as.matrix(angka_t), main = "COVID-19 Di DKI Jakarta Pada 10 - 21 Juli 2021", names.arg = data$tanggal, xlab="Tanggal", ylab ="Jumlah", beside = TRUE, col = rainbow(3))
 legend("topright", c("Kasus", "Sembuh", "Meninnggal"), cex = 0.6, bty ="n", fill=rainbow(3))
+
+hist (COVID19_DKI_JAKARTA
+      main ='Covid-19 DKI JAKARTA ',
+      sub = 'COVID-19 Di DKI Jakarta Pada 10 - 21 Juli 2021 ',
+      ylab = 'Jumlah',
+      xlab = 'Tanggal',
+      col = 'rainbow')
