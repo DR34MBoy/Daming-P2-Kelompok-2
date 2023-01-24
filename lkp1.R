@@ -24,6 +24,14 @@ meninggal <- data.frame(data$meninggal)
          
                
 g_range <- range(0,data$kasus,data$sembuh,data$meninggal)
-plot(data$meninggal,type = "o",col="blue",ylim=g_range,axes= FALSE,ann = FALSE)
+plot(data$kasus,type = "o",col="blue",ylim=g_range,axes= FALSE,ann = FALSE)
 axis(1, at=1:12,lab=data$tanggal)
 axis(2, las=1, at=1000*0:g_range[2])
+lines(data$sembuh,type="o",pch=22,lyt=2,col="red")
+lines(data$meninggal,type="o",pch=22,lyt=2,col="orange")
+
+title(main="COVID-19 Di DKI Jakarta Pada 10 - 21 Juli 2021", col.main="black",font.main=2)
+title(xlab="Tanggal",col.lab=rgb(0,0.5,0))
+title(ylab="Jumlah",col.lab=rgb(0,0.5,0))
+
+legend(9,g_range[2]-1,c("Kasus","Sembuh","Meninggal"),cex=0.8,col=c("blue","red","orange"),pch=21:22,lty=1:1)
