@@ -22,7 +22,7 @@ sembuh <- data.frame(data$sembuh)
 meninggal <- data.frame(data$meninggal)
 
          
-               
+# Line Chart          
 g_range <- range(0,data$kasus,data$sembuh,data$meninggal)
 plot(data$kasus,type = "o",col="blue",ylim=g_range,axes= FALSE,ann = FALSE)
 axis(1, at=1:12,lab=data$tanggal)
