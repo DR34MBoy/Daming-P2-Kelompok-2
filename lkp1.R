@@ -1,4 +1,3 @@
-
 # Buat tabel / dataframe
 tanggal <- c ("10 Juli" , "11 Juli", "12 Juli", "13 Juli", "14 Juli", "15 Juli", "16 Juli", "17 Juli", "18 Juli", "19 Juli", "20 Juli", "21 Juli")
 kasus <- c (10397, 10481, 11743, 9648, 10206, 10264, 9952, 8127, 7251, 3997, 4939, 4766)
