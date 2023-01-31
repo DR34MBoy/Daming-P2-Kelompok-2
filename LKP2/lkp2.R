@@ -1,6 +1,3 @@
-getwd()
-setwd("D:/Fakhri/Kuliah/Ilkom/Kuliah/Semester 6/Daming/P2")
-
 data <- read.csv("houseprices.csv")
 str(data)
 
@@ -19,7 +16,7 @@ barplot(table(data$RoofStyle), xlab= "tahun", ylab="Frekuensi", main="test")
 
 
 #5
-pairs(data[,c("LotFrontage","GarageArea","LotArea","SalePrice")],
+pairs(data[,c("LotFrontage","LotArea","GarageArea","SalePrice")],
             bg = rainbow(3),
             col = rainbow(3),
             pch = 21)
