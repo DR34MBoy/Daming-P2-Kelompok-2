@@ -1,5 +1,10 @@
+#2
+str(mtcars)
+
+
+#3
 data <- read.csv("houseprices.csv")
-str(data)
+summary(data)
 
 
 #4
@@ -17,6 +22,6 @@ barplot(table(data$RoofStyle), xlab= "tahun", ylab="Frekuensi", main="test")
 
 #5
 pairs(data[,c("LotFrontage","LotArea","GarageArea","SalePrice")],
-            bg = rainbow(3),
-            col = rainbow(3),
-            pch = 21)
+      bg = rainbow(3),
+      col = rainbow(3),
+      pch = 21)
