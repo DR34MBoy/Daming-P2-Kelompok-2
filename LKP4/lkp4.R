@@ -10,6 +10,17 @@ str(data)
 
 # No. 1 (Cek missing value dan ubah missing value)
 md.pattern(data)
+# Unit Price (Numerik)
+data$Unit.price[is.na(data$Unit.price)] <- mean (data$Unit.price, na.rm= TRUE)
+# Quantity (Numerik)
+data$Quantity[is.na(data$Quantity)] <- mean (data$Quantity, na.rm= TRUE)
+# cogs
+data$cogs[is.na(data$cogs)] <- mean (data$cogs, na.rm= TRUE)
+# Rating (Kategorik)
+data$Rating[is.na(data$Rating)] <- mean (data$Rating, na.rm= TRUE)
+# gross.income (Numerik)
+data$gross.income[is.na(data$gross.income)] <- mean (data$gross.income, na.rm= TRUE)
+
 
 # No. 2 (Diskretasi)
 ## Equal Width
