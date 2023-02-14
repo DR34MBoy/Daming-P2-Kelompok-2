@@ -18,16 +18,20 @@ str(data)
 
 # No. 1 (Cek missing value dan ubah missing value)
 md.pattern(data)
+# Rating (Kategorik)
+data$Rating[is.na(data$Rating)] <- names(sort(-table(data$Rating))[1])
+# gross.income (Numerik)
+data$gross.income[is.na(data$gross.income)] <- mean (data$gross.income, na.rm= TRUE)
+
+
+# Tidak pakai ini
 # Unit Price (Numerik)
 data$Unit.price[is.na(data$Unit.price)] <- mean (data$Unit.price, na.rm= TRUE)
 # Quantity (Numerik)
 data$Quantity[is.na(data$Quantity)] <- mean (data$Quantity, na.rm= TRUE)
 # cogs (Numerik)
 data$cogs[is.na(data$cogs)] <- mean (data$cogs, na.rm= TRUE)
-# Rating (Kategorik)
-data$Rating[is.na(data$Rating)] <- names(sort(-table(data$Rating))[1])
-# gross.income (Numerik)
-data$gross.income[is.na(data$gross.income)] <- mean (data$gross.income, na.rm= TRUE)
+
 
 # No. 2 (Diskretasi)
 ## Equal Width
