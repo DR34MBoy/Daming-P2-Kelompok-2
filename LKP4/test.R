@@ -1,8 +1,5 @@
-install.packages("infotheo")
-install.packages("mice")
-install.packages("caret")
-install.packages("BBmisc")
 install.packages("discretization")
+
 library(BBmisc)
 library(infotheo)
 library(mice)
@@ -10,19 +7,20 @@ library(caret)
 library(discretization)
 
 data <- read.csv("lkp4-dataset - market_sales_item.csv")
+
 data <- data[-251,]
 
 summary(data)
 str(data)
 
-# No. 1 (Cek missing value dan ubah missing value)
 md.pattern(data)
+
 # Rating (Kategorik)
 data$Rating[is.na(data$Rating)] <- names(sort(-table(data$Rating))[1])
 # gross.income (Numerik)
 data$gross.income[is.na(data$gross.income)] <- mean (data$gross.income, na.rm= TRUE)
 
-# No. 2 (Diskretasi)
+md.pattern(data)
 
 Quantity.disc <- discretize(data$Quantity,"equalwidth",4)
 Quantity.disc[Quantity.disc == 1] <- "Sedikit"
@@ -48,20 +46,14 @@ colnames(data)[11] <- "Quantity Disc"
 colnames(data)[12] <- "Unit Price Disc"
 colnames(data)[13] <- "Rating Disc"
 
-# No.3 (Operasi gabungan baris dan kolom)
 data <- transform(data, total_price = data$Unit.price * data$Quantity * 1.05)
 data <- transform(data, tax_5percent = data$total_price - (data$Unit.price * data$Quantity))
 
 data[14:15] <- normalize(data[14:15], method = "range", range = c(0, 1))
 
-write.csv(data, "part3lkp4.csv")
-
-# No.4 Integrasi data
 data2 <- read.csv("lkp4-dataset - customer_sales_info.csv")
 data2 <- data2[-251:-252,]
 
 data <- merge(data, data2, by = "Invoice.ID")
-
-  
 
 
