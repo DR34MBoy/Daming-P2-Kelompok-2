@@ -30,28 +30,28 @@ gdp_Oceania <- filter(gdp, Continent == "Oceania")
 
 ## Scatter plot ##
 # Asia #
-ggplot(gdp_Asia, aes(x=UN_GDP, y=GDP_per_capita, fill = "blue")) + 
-  geom_point(aes(size=Population))+geom_smooth()+ labs(title="Asia GDP per capita on population")
+ggplot(gdp_Asia, aes(x=Population, y=GDP_per_capita, fill = "blue")) + 
+  geom_point(aes(size=UN_GDP))+geom_smooth()+ labs(title="Asia GDP per capita on population")
 
 # Africa #
-ggplot(gdp_Africa, aes(x=UN_GDP, y=GDP_per_capita, fill = "blue")) + 
-  geom_point(aes(size=Population))+geom_smooth()+ labs(title="Africa GDP per capita on population")
+ggplot(gdp_Africa, aes(x=Population, y=GDP_per_capita, fill = "blue")) + 
+  geom_point(aes(size=UN_GDP))+geom_smooth()+ labs(title="Africa GDP per capita on population")
 
 # North America #
-ggplot(gdp_NA, aes(x=UN_GDP, y=GDP_per_capita, fill = "blue")) + 
-  geom_point(aes(size=Population))+geom_smooth()+ labs(title="North America GDP per capita on population")
+ggplot(gdp_NA, aes(x=Population, y=GDP_per_capita, fill = "blue")) + 
+  geom_point(aes(size=UN_GDP))+geom_smooth()+ labs(title="North America GDP per capita on population")
 
 # South America #
-ggplot(gdp_SA, aes(x=UN_GDP, y=GDP_per_capita, fill = "blue")) + 
-  geom_point(aes(size=Population))+geom_smooth()+ labs(title="South America GDP per capita on population")
+ggplot(gdp_SA, aes(x=Population, y=GDP_per_capita, fill = "blue")) + 
+  geom_point(aes(size=UN_GDP))+geom_smooth()+ labs(title="South America GDP per capita on population")
 
 # Europe #
-ggplot(gdp_Europe, aes(x=UN_GDP, y=GDP_per_capita, fill = "blue")) + 
-  geom_point(aes(size=Population))+geom_smooth()+ labs(title="Europe GDP per capita on population")
+ggplot(gdp_Europe, aes(x=Population, y=GDP_per_capita, fill = "blue")) + 
+  geom_point(aes(size=UN_GDP))+geom_smooth()+ labs(title="Europe GDP per capita on population")
 
 # Oceania #
-ggplot(gdp_Oceania, aes(x=UN_GDP, y=GDP_per_capita, fill = "blue")) + 
-  geom_point(aes(size=Population))+geom_smooth()+ labs(title="Oceania GDP per capita on population")
+ggplot(gdp_Oceania, aes(x=Population, y=GDP_per_capita, fill = "blue")) + 
+  geom_point(aes(size=UN_GDP))+geom_smooth()+ labs(title="Oceania GDP per capita on population")
 
 
 ## Extra setup ##
@@ -117,6 +117,28 @@ fviz_gap_stat(gap_stat_Oceania)
 
 
 ## K-Means Clustering
+# Asia
+Asia_km <- kmeans(gdp_Asia_v3, 2, nstart = 25)
+print(Asia_km)
+
+fviz_cluster(Asia_km, data = gdp_Asia_v3,
+             palette = rainbow(6), 
+             geom = "point",
+             ellipse.type = "convex", 
+             ggtheme = theme_bw()
+)
+
+# Africa
+Africa_km <- kmeans(gdp_Africa_v3, 1, nstart = 25)
+print(Africa_km)
+
+fviz_cluster(Africa_km, data = gdp_Africa_v3,
+             palette = rainbow(6), 
+             geom = "point",
+             ellipse.type = "convex", 
+             ggtheme = theme_bw()
+)
+
 # North America
 NA_km <- kmeans(gdp_NA_v3, 1, nstart = 25)
 print(NA_km)
@@ -127,6 +149,29 @@ fviz_cluster(NA_km, data = gdp_NA_v3,
              ellipse.type = "convex", 
              ggtheme = theme_bw()
 )
+
+# South America
+SA_km <- kmeans(gdp_SA_v3, 1, nstart = 25)
+print(SA_km)
+
+fviz_cluster(SA_km, data = gdp_SA_v3,
+             palette = rainbow(6), 
+             geom = "point",
+             ellipse.type = "convex", 
+             ggtheme = theme_bw()
+)
+
+# Europe
+Europe_km <- kmeans(gdp_Europe_v3, 1, nstart = 25)
+print(Europe_km)
+
+fviz_cluster(Europe_km, data = gdp_Europe_v3,
+             palette = rainbow(6), 
+             geom = "point",
+             ellipse.type = "convex", 
+             ggtheme = theme_bw()
+)
+
 
 # Oceania
 Oceania_km <- kmeans(gdp_Oceania_v3, 3, nstart = 25)
